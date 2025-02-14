@@ -1,0 +1,107 @@
+.result-matrix {
+    font-family: monospace;
+    white-space: pre;
+    padding: 1em;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.matrix-cell {
+    padding: 4px 8px;
+    border: 1px solid #dee2e6;
+    text-align: right;
+}
+
+.matrix-table {
+    margin: 1em 0;
+    border-collapse: collapse;
+}
+
+.matrices-container {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.matrix-input-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.matrix-controls {
+    margin-bottom: 0.5rem;
+}
+
+.matrix-bracket {
+    position: relative;
+    padding: 0.5rem 2rem;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.matrix-bracket::before,
+.matrix-bracket::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #000;
+}
+
+.matrix-bracket::before {
+    left: 0;
+    border-left: 2px solid #000;
+}
+
+.matrix-bracket::after {
+    right: 0;
+    border-right: 2px solid #000;
+}
+
+.matrix-grid {
+    display: grid;
+    gap: 0.5rem;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.matrix-cell {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-family: monospace;
+    padding: 0.25rem;
+}
+
+.calculation-steps {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+}
+
+.step {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-left: 3px solid #007bff;
+    background-color: white;
+}
+
+.matrix-table {
+    margin: 1em 0;
+    border-collapse: collapse;
+    display: inline-block;
+}
+
+.result-matrix {
+    font-family: monospace;
+    padding: 1em;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+} 

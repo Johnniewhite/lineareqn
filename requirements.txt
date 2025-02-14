@@ -1,0 +1,4 @@
+flask
+numpy
+pytest
+flask-wtf 

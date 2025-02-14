@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h2>Matrix Operations</h2>
+            </div>
+            <div class="card-body">
+                <form id="matrixForm">
+                    <div class="mb-3">
+                        <label class="form-label">Operation:</label>
+                        <select class="form-select" id="operation" name="operation">
+                            <option value="addition">Matrix Addition (A + B)</option>
+                            <option value="subtraction">Matrix Subtraction (A - B)</option>
+                            <option value="multiplication">Matrix Multiplication (A × B)</option>
+                            <option value="inverse">Matrix Inverse (A⁻¹)</option>
+                            <option value="eigen">Eigenvalues and Eigenvectors</option>
+                        </select>
+                    </div>
+
+                    <div class="matrices-container">
+                        <div id="matrix1Container" class="matrix-input-container">
+                            <label class="form-label">Matrix A:</label>
+                            <div class="matrix-controls">
+                                <button type="button" class="btn btn-sm btn-secondary" onclick="adjustSize('matrix1', 1, 0)">+Row</button>
+                                <button type="button" class="btn btn-sm btn-secondary" onclick="adjustSize('matrix1', -1, 0)">-Row</button>
+                                <button type="button" class="btn btn-sm btn-secondary" onclick="adjustSize('matrix1', 0, 1)">+Col</button>
+                                <button type="button" class="btn btn-sm btn-secondary" onclick="adjustSize('matrix1', 0, -1)">-Col</button>
+                            </div>
+                            <div class="matrix-bracket">
+                                <div class="matrix-grid" id="matrix1Grid"></div>
+                            </div>
+                        </div>
+
+                        <div id="matrix2Container" class="matrix-input-container">
+                            <label class="form-label">Matrix B:</label>
+                            <div class="matrix-controls">
+                                <button type="button" class="btn btn-sm btn-secondary" onclick="adjustSize('matrix2', 1, 0)">+Row</button>
+                                <button type="button" class="btn btn-sm btn-secondary" onclick="adjustSize('matrix2', -1, 0)">-Row</button>
+                                <button type="button" class="btn btn-sm btn-secondary" onclick="adjustSize('matrix2', 0, 1)">+Col</button>
+                                <button type="button" class="btn btn-sm btn-secondary" onclick="adjustSize('matrix2', 0, -1)">-Col</button>
+                            </div>
+                            <div class="matrix-bracket">
+                                <div class="matrix-grid" id="matrix2Grid"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3">Calculate</button>
+                </form>
+
+                <div id="steps" class="mt-4 calculation-steps">
+                    <h3>Calculation Steps:</h3>
+                    <div id="stepsContent"></div>
+                </div>
+
+                <div id="result" class="mt-4">
+                    <h3>Final Result:</h3>
+                    <div id="resultContent" class="result-matrix"></div>
+                </div>
+
+                <div id="error" class="alert alert-danger mt-4" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
