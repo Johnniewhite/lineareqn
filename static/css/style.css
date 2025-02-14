@@ -1,15 +1,149 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f6fa;
+    --accent-color: #2ecc71;
+    --error-color: #e74c3c;
+    --text-color: #2c3e50;
+    --border-radius: 8px;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, var(--primary-color), #357abd);
+}
+
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: white;
+    margin-bottom: 2rem;
+}
+
+.card-header {
+    background: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 1.5rem;
+}
+
+.card-header h2 {
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.matrix-input-container {
+    background: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.matrix-input-container:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.matrix-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.matrix-controls button {
+    background: white;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    transition: all 0.2s ease;
+}
+
+.matrix-controls button:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.matrix-cell {
+    width: 65px;
+    height: 45px;
+    border: 2px solid #e1e4e8;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.matrix-cell:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    outline: none;
+}
+
+.calculation-steps {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.step {
+    background: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 4px solid var(--primary-color);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #357abd;
+    transform: translateY(-1px);
+}
+
+.form-select {
+    border-radius: var(--border-radius);
+    padding: 0.75rem;
+    border-color: #e1e4e8;
+}
+
+.alert {
+    border-radius: var(--border-radius);
+    border: none;
+}
+
+.result-matrix {
+    background: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .result-matrix {
     font-family: monospace;
     white-space: pre;
     padding: 1em;
     background-color: #f8f9fa;
     border-radius: 4px;
-}
-
-.matrix-cell {
-    padding: 4px 8px;
-    border: 1px solid #dee2e6;
-    text-align: right;
 }
 
 .matrix-table {
@@ -22,17 +156,6 @@
     gap: 2rem;
     margin: 1rem 0;
     flex-wrap: wrap;
-}
-
-.matrix-input-container {
-    flex: 1;
-    min-width: 300px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.matrix-controls {
-    margin-bottom: 0.5rem;
 }
 
 .matrix-bracket {
@@ -77,20 +200,6 @@
     border-radius: 4px;
     font-family: monospace;
     padding: 0.25rem;
-}
-
-.calculation-steps {
-    background-color: #f8f9fa;
-    padding: 1rem;
-    border-radius: 4px;
-    margin-top: 2rem;
-}
-
-.step {
-    margin: 1rem 0;
-    padding: 0.5rem;
-    border-left: 3px solid #007bff;
-    background-color: white;
 }
 
 .matrix-table {

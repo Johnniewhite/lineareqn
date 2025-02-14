@@ -54,11 +54,14 @@ $(document).ready(function() {
     // Handle form submission
     form.submit(function(e) {
         e.preventDefault();
+        const submitBtn = $(this).find('button[type="submit"]');
+        submitBtn.html('<i class="fas fa-spinner fa-spin"></i> Calculating...').prop('disabled', true);
         errorDiv.hide();
         resultContent.empty();
         stepsContent.empty();
 
         if (!validateMatrixDimensions()) {
+            submitBtn.html('Calculate').prop('disabled', false);
             return;
         }
 
@@ -88,9 +91,11 @@ $(document).ready(function() {
                 } else {
                     errorDiv.text(response.message).show();
                 }
+                submitBtn.html('Calculate').prop('disabled', false);
             },
             error: function() {
                 errorDiv.text('An error occurred during calculation.').show();
+                submitBtn.html('Calculate').prop('disabled', false);
             }
         });
     });
@@ -173,14 +178,16 @@ $(document).ready(function() {
     }
 
     function displaySteps(steps) {
-        const stepsContent = $('#stepsContent');
+        stepsContent.empty();
         steps.forEach((step, index) => {
-            const stepDiv = $('<div>').addClass('step');
+            const stepDiv = $('<div>')
+                .addClass('step animate__animated animate__fadeIn')
+                .css('animation-delay', `${index * 0.1}s`);
             stepDiv.html(`
-                <strong>Step ${index + 1}:</strong>
-                <div class="step-content">
-                    ${step.explanation}
-                    ${step.latex ? `<div>\\[${step.latex}\\]</div>` : ''}
+                <strong class="text-primary">Step ${index + 1}:</strong>
+                <div class="step-content mt-2">
+                    <p class="mb-2">${step.explanation}</p>
+                    ${step.latex ? `<div class="math-content">\\[${step.latex}\\]</div>` : ''}
                 </div>
             `);
             stepsContent.append(stepDiv);
@@ -239,5 +246,21 @@ $(document).ready(function() {
             const sign = value.imag >= 0 ? '+' : '';
             return `${Number(value.real).toFixed(4)}${sign}${Number(value.imag).toFixed(4)}i`;
         }
+    }
+
+    // Add this function for smooth animations
+    function animateCSS(element, animation) {
+        return new Promise((resolve) => {
+            const node = document.querySelector(element);
+            node.classList.add('animate__animated', `animate__${animation}`);
+            
+            function handleAnimationEnd(event) {
+                event.stopPropagation();
+                node.classList.remove('animate__animated', `animate__${animation}`);
+                resolve('Animation ended');
+            }
+            
+            node.addEventListener('animationend', handleAnimationEnd, {once: true});
+        });
     }
 }); 
